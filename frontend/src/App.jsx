@@ -24,7 +24,7 @@ const Button = (props) => {
 const Filter = (props) => {
   return (
     <form>
-      filter shown with <input value={props.nameFilter} onChange={props.handleNameFilterChange} />
+      Filter: <input value={props.nameFilter} onChange={props.handleNameFilterChange} />
     </form>
   )
 }
@@ -33,13 +33,13 @@ const PersonForm = (props) => {
   return (
     <form onSubmit={props.addPerson}>
       <div>
-        name: <input value={props.newName} onChange={props.handleNameChange} />
+        Name: <input value={props.newName} onChange={props.handleNameChange} />
       </div>
       <div>
-        number: <input value={props.newNumber} onChange={props.handleNumberChange} />
+        Number: <input value={props.newNumber} onChange={props.handleNumberChange} />
       </div>
       <div>
-        <button type="submit">add</button>
+        <button type="submit">Add</button>
       </div>
     </form>
   )
@@ -171,7 +171,7 @@ const App = () => {
       <h2>Phonebook</h2>
       <Notification message={message} />
       <Filter nameFilter={nameFilter} handleNameFilterChange={handleNameFilterChange} />
-      <h2>Add a new</h2>
+      <h2>Add a new person</h2>
       <PersonForm addPerson={addPerson} newName={newName} handleNameChange={handleNameChange} newNumber={newNumber} handleNumberChange={handleNumberChange} />
       <h2>Numbers</h2>
       <Persons persons={personsToShow} removePerson={removePerson}/>
