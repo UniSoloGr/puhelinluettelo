@@ -1,13 +1,17 @@
-FROM node:20-alpine 
+FROM node:20-alpine AS frontend-builder
+WORKDIR /frontend
+COPY frontend/package*.json ./
+RUN npm install
+COPY frontend/ ./
+RUN npm run build:ui
 
+FROM node:20-alpine 
 WORKDIR /app
 
 COPY /backend/package*.json ./
-
 RUN npm install
 
 COPY /backend ./
-
-RUN npm run deploy:full
+COPY --from=frontend-builder /frontend/dist ./dist
 
 CMD ["npm", "start"]
