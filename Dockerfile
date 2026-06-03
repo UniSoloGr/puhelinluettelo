@@ -8,4 +8,6 @@ RUN npm install
 
 COPY /backend ./
 
+RUN npm run deploy:full
+
 CMD ["npm", "start"]
